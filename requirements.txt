@@ -1,0 +1,5 @@
+numpy==2.3.5
+scipy==1.17.0
+scikit-learn==1.8.0
+causal-learn==0.1.4.8
+# setup.sh installs torch==2.8.0 from the official CPU wheel index.

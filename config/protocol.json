@@ -1,0 +1,147 @@
+{
+  "experiment_id": "rkds_paper_experiments_v2",
+  "methods_core": [
+    "RKDS",
+    "ANM_GP",
+    "ANM_KRR",
+    "RECI_MON3",
+    "KCDC"
+  ],
+  "method_pnl": "PNL-causal-learn",
+  "pnl": {
+    "source_commit": "0dacacf36390e3084704636bc3c36e82e35ee0cc",
+    "training": "unchanged upstream defaults",
+    "pvalues": "upstream scipy.stats.ttest_ind, rounded to three decimals",
+    "decision": "external larger-p rule; exact ties abstain; no significance threshold",
+    "torch_seed": "upstream resets to zero once per pair; reverse continues forward RNG state"
+  },
+  "rkds": {
+    "theta": 1e-06,
+    "sigma1": 0.2,
+    "sigma2": 0.2,
+    "sigma3": 1.6,
+    "screen_sigma": 0.4,
+    "screen_permutations": 999,
+    "alpha": 0.05,
+    "tie_tolerance": 1e-12
+  },
+  "anm": {
+    "n": [
+      200,
+      500,
+      1000
+    ],
+    "functions": 12,
+    "causes": 3,
+    "noises": 9,
+    "rho": [
+      0.5,
+      1,
+      2
+    ],
+    "replicates": 20,
+    "cases": 58320,
+    "records": 349920
+  },
+  "sensitivity": {
+    "n": [
+      1000
+    ],
+    "cases": 1944,
+    "configs": 12,
+    "records": 23328,
+    "replicates": 2,
+    "theta": [
+      1e-08,
+      1e-07,
+      1e-06,
+      1e-05,
+      0.0001,
+      0.001
+    ],
+    "sigma1": [
+      0.1,
+      0.2,
+      0.4
+    ],
+    "sigma2": [
+      0.1,
+      0.2,
+      0.4
+    ],
+    "sigma3": [
+      0.8,
+      1.6,
+      3.2
+    ],
+    "rule": "baseline plus one-parameter-at-a-time changes"
+  },
+  "tcep": {
+    "pairs": 102,
+    "caps": [
+      1000,
+      "full"
+    ],
+    "subsample_replicates": 10,
+    "cases": 1122,
+    "records": 6732,
+    "official_weight_sum": 38.4979,
+    "continuous_subset_basis": "67 pairs selected from official data descriptions, not an official predefined subset",
+    "confirmed_continuous_pairs": 67,
+    "confirmed_continuous_weight_sum": 22.7063,
+    "indices": "stored original one-based row indices; no new subsampling"
+  },
+  "nonanm": {
+    "n": [
+      200,
+      500,
+      1000
+    ],
+    "worlds_per_n": 300,
+    "cases": 3600,
+    "records": 21600,
+    "functions": [
+      "quadratic",
+      "cubic_turning",
+      "softplus",
+      "tanh",
+      "multifrequency",
+      "local_bump"
+    ],
+    "cause_and_noise_library": [
+      "Gaussian",
+      "Laplace",
+      "Gamma_shape2_scale1",
+      "bimodal"
+    ],
+    "sampling": "independent equiprobable library choices; independent X and epsilon",
+    "structures": [
+      "ANM_control",
+      "heteroscedastic",
+      "post_nonlinear",
+      "multiplicative"
+    ],
+    "rho": 1,
+    "delta": 0.2,
+    "outer": [
+      "cubic",
+      "asinh"
+    ]
+  },
+  "evaluation": {
+    "metrics": [
+      "native_accuracy",
+      "coverage",
+      "conditional_accuracy"
+    ],
+    "tie_tolerance": 1e-12,
+    "score_comparison": "optional; larger p for ANM_GP/ANM_KRR/PNL, smaller score for RKDS/RECI_MON3/KCDC; exact ties abstain",
+    "tcep_aggregation": "per-seed metrics then mean and sample SD"
+  },
+  "runtime": {
+    "threads_per_worker": 1,
+    "os_reserve_gib": 6,
+    "max_method_seconds": 14400,
+    "automatic_infrastructure_retries": 1
+  }
+}

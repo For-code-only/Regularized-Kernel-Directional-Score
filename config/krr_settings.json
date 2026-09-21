@@ -1,0 +1,28 @@
+{
+  "schema": 2,
+  "method": "ANM_KRR",
+  "regression": {
+    "implementation": "sklearn.kernel_ridge.KernelRidge",
+    "kernel": "rbf",
+    "kernel_formula": "exp(-||x-x'||^2/(2*sigma^2))",
+    "bandwidth_rule": "sigma is the median of strictly positive pairwise Euclidean distances in the candidate-cause sample",
+    "gamma_rule": "1 / (2 * sigma^2)",
+    "alpha": 1.0,
+    "hyperparameter_selection": "none",
+    "note": "KernelRidge is called directly with kernel='rbf', the direction-specific median-heuristic gamma, and sklearn's documented default alpha=1.0; there is no custom solve, grid search, or cross-validation."
+  },
+  "residual_independence_test": {
+    "implementation": "causal-learn 0.1.4.8 KCI_UInd",
+    "kernelX": "Gaussian",
+    "kernelY": "Gaussian",
+    "est_width": "empirical",
+    "approx": true,
+    "pvalue_calibration": "moment-matched gamma approximation",
+    "note": "These are the explicit defaults used by the actually-run ANM-GP wrapper; they are intentionally not changed to median bandwidths."
+  },
+  "decision": {
+    "alpha": 0.05,
+    "not_rejected": "p > alpha",
+    "rule": "return a direction only when exactly that direction is not rejected; otherwise return 0"
+  }
+}
