@@ -26,7 +26,7 @@
     "src/r/adapters.R": "68e5fe49ea46e95442e7019d0efcbe1cae47f47f63058d29ea6408097b605672",
     "src/r/core.R": "c925bfb613b24fd3630145f074acbf9888b90bd891aa54504ea45a73dcbcd949",
     "src/r/kcdc.R": "f527704c632bf1cacb1f69fc482bc966b9de27ae766378d94bc441d11738a2d0",
-    "src/r/kcdc_config.R": "f388bca5b03c7db1c6cad45d775866f5a37311466c6dc2baf7348e339f63e605",
+    "src/r/kcdc_config.R": "b8f3852ec0dda42b6d3f997c85fac3ca31dd7878bd4e54581165ffb6737a819c",
     "src/r/nonanm_cause.R": "827353a030702883b2c7e97bf74f7a48aec1717d2aad63b00e57680900634c8b",
     "src/r/nonanm_random.R": "f86676bb915701943751b038d56db22c11b3ca1b11dae1e01e2d1d6aa7923f86",
     "src/r/permutation.cpp": "b7099ad2cfa0eca5be3a49f818cf5a7886326d537f75989163adb3fc6255674d",
